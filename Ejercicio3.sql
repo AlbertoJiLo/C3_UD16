@@ -31,9 +31,4 @@ use actividades;
 /*3.15*/ DELETE FROM cajas WHERE valor<100;
 
 /*3.16*/ DELETE FROM cajas WHERE almacen IN(
-SELECT codigo FROM almacenes WHERE capacidad< (
-SELECT COUNT(numreferencia) FROM cajas WHERE almacen=codigo));
-
-show columns from cajas;
-select * from almacenes;
-select * from cajas;
+		SELECT codigo FROM almacenes WHERE capacidad< (SELECT COUNT(numreferencia) FROM cajas WHERE almacen=codigo));
